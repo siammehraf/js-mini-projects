@@ -18,7 +18,7 @@ body {
 .box {
   width: 80px;
   height: 50px;
-  background-color: #fe5d26;
+  background-color: #ffffff;
   animation: move 5s linear infinite;
   cursor: pointer;
   color: black;
@@ -29,6 +29,66 @@ body {
   justify-content: center;
   font-family: sans-serif;
   font-weight: bold;
+}
+
+#one {
+  background-color: #5409da;
+  color: white;
+}
+
+#two {
+  background-color: #096b68;
+  color: white;
+}
+
+#three {
+  background-color: #ff9f00;
+  color: white;
+}
+
+#four {
+  background-color: #cb0404;
+  color: white;
+}
+
+#five {
+  background-color: #3a0519;
+  color: white;
+}
+
+#six {
+  background-color: #1b56fd;
+  color: white;
+}
+
+#seven {
+  background-color: #210f37;
+  color: white;
+}
+
+#eight {
+  background-color: #27391c;
+  color: white;
+}
+
+#nine {
+  background-color: #e50046;
+  color: white;
+}
+
+#ten {
+  background-color: #3e7b27;
+  color: white;
+}
+
+#eleven {
+  background-color: #e85c0d;
+  color: white;
+}
+
+#twelve {
+  background-color: #2e236c;
+  color: white;
 }
 
 /* Left to Right */
