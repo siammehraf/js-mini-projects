@@ -1,0 +1,75 @@
+body {
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  font-family: sans-serif;
+}
+
+.line {
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.box {
+  width: 80px;
+  height: 50px;
+  background-color: #fe5d26;
+  animation: move 5s linear infinite;
+  cursor: pointer;
+  color: black;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+/* Left to Right */
+.left-to-right .box {
+  animation-name: move-ltr;
+}
+
+/* Right to Left */
+.right-to-left {
+  justify-content: flex-end;
+}
+
+.right-to-left .box {
+  animation-name: move-rtl;
+}
+
+@keyframes move-ltr {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes move-rtl {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+/* Stop animation when clicked */
+.paused {
+  animation-play-state: paused;
+}
+
+/* 
+  Boxes Animation
+  © 2025 Siam Mehraf
+  All rights reserved.
+*/
