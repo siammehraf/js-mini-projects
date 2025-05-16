@@ -3,12 +3,17 @@ const clickSound = document.getElementById("clickSound");
 
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
-    // Toggle animation pause
-    box.classList.toggle("paused");
+    // Pause the box
+    box.classList.add("paused");
 
-    // Play the sound
-    clickSound.currentTime = 0; // Rewind to start
+    // Play the click sound
+    clickSound.currentTime = 0;
     clickSound.play();
+
+    // Auto-resume after 3 seconds
+    setTimeout(() => {
+      box.classList.remove("paused");
+    }, 1500);
   });
 });
 
