@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  background-color: #096b68;
+  color: white;
+  height: 5rem;
+  line-height: 5rem; /* Give the line-height same as height */
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+.choice {
+  height: 165px;
+  width: 165px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choice:hover {
+  opacity: 100%;
+  cursor: pointer;
+  background-color: black;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover; /* To Fit The Photos without being Distorted */
+  border-radius: 50%;
+}
+
+.score-board {
+  display: flex;
+  align-items: center; /* For Vertically Align */
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+  gap: 5rem;
+}
+
+#user-score,
+#comp-score {
+  font-size: 4rem;
+}
+
+.msg-container {
+  margin-top: 5rem;
+}
+#msg {
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  display: inline; /* Stopping the black bar from displaying the whole Line */
+  padding: 1rem;
+  border-radius: 1rem;
+}
