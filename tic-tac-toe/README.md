@@ -1,3 +1,5 @@
+JS Mini Projects
+
 # 🎮 Tic Tac Toe Game (with Sound & 3D UI)
 
 A simple, beautiful, and interactive Tic Tac Toe game built with **HTML, CSS, and JavaScript**. This version includes:
