@@ -1,37 +1,46 @@
 const boxes = document.querySelectorAll(".box");
 
-// Preload the click sound
-const clickSound = document.getElementById("clickSound");
+// Initialize AudioContext
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+// Load and decode the click sound once
+let clickBuffer = null;
+
+fetch("click.mp3")
+  .then((response) => response.arrayBuffer())
+  .then((data) => audioCtx.decodeAudioData(data))
+  .then((buffer) => {
+    clickBuffer = buffer;
+  })
+  .catch((err) => {
+    console.error("Failed to load audio:", err);
+  });
 
 boxes.forEach((box) => {
-  // Initialize counter for each box
   box.clickCount = 0;
 
   box.addEventListener("click", () => {
-    // Increment click count
-    box.clickCount += 1;
+    // Resume context (needed on mobile to allow audio)
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
 
-    // Show the updated count inside the box
+    box.clickCount += 1;
     box.textContent = box.clickCount;
 
-    // Clone the audio element to allow multiple rapid plays
-    const soundClone = clickSound.cloneNode();
-    soundClone.play().catch((e) => {
-      console.log("Audio failed to play:", e);
-    });
+    // Play the sound using a new buffer source
+    if (clickBuffer) {
+      const source = audioCtx.createBufferSource();
+      source.buffer = clickBuffer;
+      source.connect(audioCtx.destination);
+      source.start(0);
+    }
 
     // Pause animation
     box.classList.add("paused");
 
-    // Resume animation after 1.5 seconds
     setTimeout(() => {
       box.classList.remove("paused");
     }, 1500);
   });
 });
-
-/* 
-  Boxes Animation
-  © 2025 Siam Mehraf
-  All rights reserved.
-*/
