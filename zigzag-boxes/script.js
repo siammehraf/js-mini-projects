@@ -1,4 +1,6 @@
 const boxes = document.querySelectorAll(".box");
+
+// Preload the click sound
 const clickSound = document.getElementById("clickSound");
 
 boxes.forEach((box) => {
@@ -12,9 +14,11 @@ boxes.forEach((box) => {
     // Show the updated count inside the box
     box.textContent = box.clickCount;
 
-    // Play the click sound
-    clickSound.currentTime = 0;
-    clickSound.play();
+    // Clone the audio element to allow multiple rapid plays
+    const soundClone = clickSound.cloneNode();
+    soundClone.play().catch((e) => {
+      console.log("Audio failed to play:", e);
+    });
 
     // Pause animation
     box.classList.add("paused");
